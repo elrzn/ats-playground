@@ -18,4 +18,16 @@ fun fibo(n: int): int =
   else
     1
 
+fun is_even(n: int): bool =
+  if n > 0 then
+    is_odd(n - 1)
+  else true
+and is_odd(n: int): bool =
+  if n > 0 then
+    is_even(n - 1)
+  else false
+
+val () = println!(is_even(1))
+val () = println!(is_even(2))
+
 implement main0() = ()
