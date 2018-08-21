@@ -1,20 +1,16 @@
 #include "share/atspre_staload.hats"
 
-fun fact(n: int): int =
-  if n > 0 then
-    n * fact(n - 1)
-  else
-    1
+fun factorial(x: int): int =
+  let fun factorial_recur(acc: int, rem: int): int =
+    if rem = 0 then
+      acc
+    else
+      factorial_recur(acc * rem, rem - 1)
+  in
+    factorial_recur(1, x)
+  end
 
-val () = println!("fact(10) = ", fact(10))
-
-fun testfact(n: int) : void =
-  if n > 0 then (
-    testfact(n - 1);
-    println!("fact(", n - 1, ") = ", n - 1);
-  )
-
-val () = testfact(100)
+val () = println!(factorial(5))
 
 fun fibo(n: int): int =
   if n > 2 then
